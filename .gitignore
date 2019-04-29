@@ -1,0 +1,8 @@
+.idea/
+.DS_Store
+*testo*
+*pycache*
+testing/__pycache__/*
+helpers/testoff*
+.benchmarks
+ helpers/__pycache__/*
