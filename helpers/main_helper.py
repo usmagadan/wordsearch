@@ -1,25 +1,21 @@
 import random, string, itertools
 
-# English words searched in a grid
-words = open('words.txt', 'r').read().splitlines()
-# All low case letters from English alphabet
-letters = string.ascii_lowercase
+words = open('words.txt', 'r').read().splitlines()  # English words searched in a grid
 found_words = set()
 
 
 def create_grid(a, b):
 	"""Create grid of letters with a x b dimensions"""
-	if a < 1 or b < 1: raise Exception('Dimensions of grid can\'t be less than 1')
+	if a < 1 or b < 1: raise Exception("Dimensions of grid can't be less than 1")
+	letters = string.ascii_lowercase  # All low case letters from English alphabet
 	global grid_letters
 	grid_letters = [list(map(lambda let: random.choice(letters), range(a))) for _ in itertools.repeat(object, b)]
-	print(grid_letters)
 
 
 def grid_transpose(b):
 	"""Transpose grid"""
 	global transpose_letters
 	transpose_letters = [row[i] for i in range(len(grid_letters[0])) for row in grid_letters]
-	print(transpose_letters)
 	transpose_letters = [transpose_letters[x:x + b] for x in range(0, len(transpose_letters), b)]
 
 
